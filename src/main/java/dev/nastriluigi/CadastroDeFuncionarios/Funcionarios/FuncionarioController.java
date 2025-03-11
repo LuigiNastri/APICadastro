@@ -1,4 +1,4 @@
-package dev.nastriluigi.CadastroDeFuncionarios;
+package dev.nastriluigi.CadastroDeFuncionarios.Funcionarios;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
