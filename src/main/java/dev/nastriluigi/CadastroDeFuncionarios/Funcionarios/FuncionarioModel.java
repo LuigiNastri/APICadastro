@@ -1,6 +1,8 @@
-package dev.nastriluigi.CadastroDeFuncionarios;
+package dev.nastriluigi.CadastroDeFuncionarios.Funcionarios;
 
+import dev.nastriluigi.CadastroDeFuncionarios.Atividade.AtividadeModel;
 import jakarta.persistence.*;
+import java.util.List;
 
 // Transforma uma classe em uma Entidade do BD
 @Entity
@@ -13,6 +15,11 @@ public class FuncionarioModel {
     private String email;
     private int idade;
 
+    // Um funcionario tem uma unica atividade
+    @ManyToOne
+    @JoinColumn(name = "atividade.id")
+    private AtividadeModel atividade;
+
     public FuncionarioModel() {
     }
 
@@ -21,6 +28,8 @@ public class FuncionarioModel {
         this.email = email;
         this.idade = idade;
     }
+
+
 
     public String getNome() {
         return nome;
