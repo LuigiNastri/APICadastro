@@ -8,8 +8,6 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-
-
 // Transforma uma classe em uma Entidade do BD
 
 @Entity
@@ -23,7 +21,10 @@ public class FuncionarioModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID;
     private String nome;
+
+    @Column(unique = true)
     private String email;
+
     private int idade;
 
     // Um funcionario tem uma unica atividade
