@@ -19,13 +19,19 @@ import java.util.List;
 public class FuncionarioModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "id")
     private Long ID;
+
+    @Column (name = "nome")
     private String nome;
 
-    @Column(unique = true)
+    @Column(unique = true, name = "email")
     private String email;
 
+    @Column (name = "idade")
     private int idade;
+
+
 
     // Um funcionario tem uma unica atividade
     @ManyToOne
