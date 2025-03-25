@@ -23,7 +23,7 @@ public class AtividadeModel {
     private NivelDificuldade dificuldade;
 
     // Uma atividade pode ter varios funcionarios
-    @OneToMany(mappedBy = "missoes")
+    @OneToMany(mappedBy = "atividade")
     private List<FuncionarioModel> funcionarios;
 
 

@@ -35,7 +35,7 @@ public class FuncionarioModel {
 
     // Um funcionario tem uma unica atividade
     @ManyToOne
-    @JoinColumn(name = "atividade.id")
+    @JoinColumn(name = "atividade_id")
     private AtividadeModel atividade;
 
 
