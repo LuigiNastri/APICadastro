@@ -20,6 +20,7 @@ public class AtividadeModel {
 
     private Long id;
     private String descricao;
+    @Enumerated(EnumType.STRING)
     private NivelDificuldade dificuldade;
 
     // Uma atividade pode ter varios funcionarios
