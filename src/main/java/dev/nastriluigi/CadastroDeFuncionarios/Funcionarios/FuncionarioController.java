@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping
 public class FuncionarioController {
-    @GetMapping("/boasvindas")
+    @GetMapping("/funcionario")
     public String boasVindas() {
 
         return "Essa é minha primeira mensagem nessa rota";
@@ -16,13 +16,13 @@ public class FuncionarioController {
             return "funcionario criado";
         }
 
-        // Mostrar Funcionario por ID (Read)
-        @GetMapping("/all")
+        // Mostrar Funcionario  (Read)
+        @GetMapping("/listar")
         public String mostrarTodosFunc(){
             return "mostrar funcionario";
             }
-        // Mostrar todos os Ninjas (Read)
-        @GetMapping("/TodosID")
+        // Mostrar todos os funcionarios por ID (Read)
+        @GetMapping("/listarID")
         public String mostrarTodosFuncporid(){
             return "mostrar funcionario por ID";
         }
