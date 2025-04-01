@@ -1,11 +1,18 @@
 package dev.nastriluigi.CadastroDeFuncionarios.Funcionarios;
-
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping
+@RequestMapping("/funcionario")
 public class FuncionarioController {
-    @GetMapping("/funcionario")
+    private final FuncionarioService funcionarioService;
+
+    public FuncionarioController(FuncionarioService funcionarioService) {
+        this.funcionarioService = funcionarioService;
+    }
+
+    @GetMapping("/boasvindas")
     public String boasVindas() {
 
         return "Essa é minha primeira mensagem nessa rota";
@@ -18,8 +25,8 @@ public class FuncionarioController {
 
         // Mostrar Funcionario  (Read)
         @GetMapping("/listar")
-        public String mostrarTodosFunc(){
-            return "mostrar funcionario";
+        public List<FuncionarioModel> ListarFuncionarios(){
+            return funcionarioService.ListarFuncionarios();
             }
         // Mostrar todos os funcionarios por ID (Read)
         @GetMapping("/listarID")
