@@ -1,4 +1,5 @@
 package dev.nastriluigi.CadastroDeFuncionarios.Atividade;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.nastriluigi.CadastroDeFuncionarios.Funcionarios.FuncionarioModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -25,6 +26,7 @@ public class AtividadeModel {
 
     // Uma atividade pode ter varios funcionarios
     @OneToMany(mappedBy = "atividade")
+    @JsonIgnore
     private List<FuncionarioModel> funcionarios;
 
 
