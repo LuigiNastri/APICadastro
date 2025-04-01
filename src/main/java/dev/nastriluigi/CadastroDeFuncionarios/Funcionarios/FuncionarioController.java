@@ -29,9 +29,9 @@ public class FuncionarioController {
             return funcionarioService.ListarFuncionarios();
             }
         // Mostrar todos os funcionarios por ID (Read)
-        @GetMapping("/listarID")
-        public String mostrarTodosFuncporid(){
-            return "mostrar funcionario por ID";
+        @GetMapping("/listar/{id}")
+        public FuncionarioModel ListarFuncporid(@PathVariable Long id){
+            return funcionarioService.ListarFuncporid(id);
         }
          //Alterar dados dos funcionarios (Update)
         @PutMapping("/alterarID")
