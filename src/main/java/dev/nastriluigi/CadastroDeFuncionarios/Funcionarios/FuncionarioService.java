@@ -23,5 +23,9 @@ public class FuncionarioService {
         Optional<FuncionarioModel> funcionarioPorId = funcionarioRepository.findById(id);
         return funcionarioPorId.orElse(null);
     }
+    // Criar um novo funcionario
 
+    public FuncionarioModel criarFuncionario(FuncionarioModel funcionario){
+        return funcionarioRepository.save(funcionario);
+    }
 }
