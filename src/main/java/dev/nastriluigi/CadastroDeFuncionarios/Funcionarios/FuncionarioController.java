@@ -34,16 +34,15 @@ public class FuncionarioController {
             return funcionarioService.ListarFuncporid(id);
         }
          //Alterar dados dos funcionarios (Update)
-        @PutMapping("/alterarID")
+        @PutMapping("/alterar/{id}")
         public String AlterarFunc(){
             return "Alterar funcionario por ID";
         }
         // Deletar Funcionarios (Delete)
-        @DeleteMapping("/deleterID")
-        public String DeletarFuncID(){
-            return "Deletar funcionario por ID";
+        @DeleteMapping("/deletar/{id}")
+        public void DeletarFuncID(@PathVariable Long id){
+        funcionarioService.DeletarFuncID(id);
         }
-
         }
 
 

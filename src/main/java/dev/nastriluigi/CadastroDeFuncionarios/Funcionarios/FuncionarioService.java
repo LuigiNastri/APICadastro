@@ -24,8 +24,15 @@ public class FuncionarioService {
         return funcionarioPorId.orElse(null);
     }
     // Criar um novo funcionario
-
     public FuncionarioModel criarFuncionario(FuncionarioModel funcionario){
         return funcionarioRepository.save(funcionario);
     }
+
+    // Deletar um funcionario = Tem que ser um metodo VOID
+    public void DeletarFuncID(Long id){
+        funcionarioRepository.deleteById(id);
+    }
+
+
+
 }
