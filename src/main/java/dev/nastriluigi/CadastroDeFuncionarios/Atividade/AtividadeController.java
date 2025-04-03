@@ -1,5 +1,4 @@
 package dev.nastriluigi.CadastroDeFuncionarios.Atividade;
-
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,14 +16,19 @@ public class AtividadeController {
 
     // GET --  Mandar uma requisao para mostrar as atividade
     @GetMapping("/listar")
-    public List<AtividadeModel> listarAtividade(){
-        return atividadeService.listarAtividade();
+    public List<AtividadeModel> listarAtiv(){
+        return atividadeService.listarAtiv();
+    }
+    // Listar por ID
+    @GetMapping("/listar/{id}")
+    public AtividadeModel listarAtivporID(@PathVariable Long id){
+        return atividadeService.listarAtivporID(id);
     }
     // POST --  Mandar uma requisao para criar as atividade
 
     @PostMapping("/criar")
-    public String criarAtividade(){
-        return "Atividade criado";
+    public AtividadeModel criarAtiv(@RequestBody AtividadeModel atividade){
+        return atividadeService.criarAtiv(atividade);
     }
     // PUT --  Mandar uma requisao para alterar as atividade
 
@@ -33,10 +37,8 @@ public class AtividadeController {
         return "Alterar atividade";
     }
     // Delete --  Mandar uma requisao para deletar as atividade
-
-    @DeleteMapping("/deletar")
-    public String deletarAtividade(){
-        return "Deletar atividade";
+    @DeleteMapping("/deletar/{id}")
+    public void deletarAtivPorID(@PathVariable Long id){
+        atividadeService.deletarAtivPorID(id);
     }
-
 }
