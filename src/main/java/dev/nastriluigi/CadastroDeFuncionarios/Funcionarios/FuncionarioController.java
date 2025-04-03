@@ -33,16 +33,19 @@ public class FuncionarioController {
         public FuncionarioModel ListarFuncporid(@PathVariable Long id){
             return funcionarioService.ListarFuncporid(id);
         }
-         //Alterar dados dos funcionarios (Update)
-        @PutMapping("/alterar/{id}")
-        public String AlterarFunc(){
-            return "Alterar funcionario por ID";
-        }
+
         // Deletar Funcionarios (Delete)
         @DeleteMapping("/deletar/{id}")
         public void DeletarFuncID(@PathVariable Long id){
         funcionarioService.DeletarFuncID(id);
         }
+
+        //Atualizar dados dos funcionarios (Update)
+        @PutMapping("/alterar/{id}")
+        public FuncionarioModel AtualizarFunc(@PathVariable Long id, @RequestBody FuncionarioModel funcionarioAtualizado){
+        return funcionarioService.AtualizarFunc(id, funcionarioAtualizado);
+    }
+
         }
 
 

@@ -41,4 +41,5 @@ public class AtividadeController {
     public void deletarAtivPorID(@PathVariable Long id){
         atividadeService.deletarAtivPorID(id);
     }
+
 }
