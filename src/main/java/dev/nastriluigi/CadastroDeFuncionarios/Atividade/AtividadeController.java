@@ -32,9 +32,9 @@ public class AtividadeController {
     }
     // PUT --  Mandar uma requisao para alterar as atividade
 
-    @PutMapping("/alterar")
-    public String alterarAtividade(){
-        return "Alterar atividade";
+    @PutMapping("/alterar/{id}")
+    public AtividadeModel alterarAtiv(@PathVariable Long id, @RequestBody AtividadeModel atividadeAtualizado){
+        return atividadeService.alterarAtiv(id, atividadeAtualizado);
     }
     // Delete --  Mandar uma requisao para deletar as atividade
     @DeleteMapping("/deletar/{id}")

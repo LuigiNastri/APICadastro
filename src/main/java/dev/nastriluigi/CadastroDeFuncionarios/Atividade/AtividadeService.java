@@ -23,12 +23,20 @@ public class  AtividadeService {
         Optional<AtividadeModel> atividadeporID = atividadeRepository.findById(id);
         return atividadeporID.orElse(null);
     }
-
+    // Criar atividade
     public AtividadeModel criarAtiv(AtividadeModel atividade){
         return atividadeRepository.save(atividade);
     }
-
+    // Deletar atividade
     public void deletarAtivPorID(Long id){
         atividadeRepository.deleteById(id);
+    }
+    // Alterar atividade
+    public AtividadeModel alterarAtiv(Long id, AtividadeModel atividadeAtualizado) {
+        if (atividadeRepository.existsById(id)){
+            atividadeAtualizado.setId(id);
+            return atividadeRepository.save(atividadeAtualizado);
+        }
+        return null;
     }
 }
