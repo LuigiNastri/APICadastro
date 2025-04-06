@@ -34,8 +34,6 @@ public class FuncionarioService {
     public void DeletarFuncID(Long id){
         funcionarioRepository.deleteById(id);
     }
-
-    // Atualizar Funcionario
     public FuncionarioDTO AtualizarFunc(Long id, FuncionarioDTO funcionarioDTO){
         Optional<FuncionarioModel> funcionarioExistente = funcionarioRepository.findById(id);
         if (funcionarioExistente.isPresent()){
