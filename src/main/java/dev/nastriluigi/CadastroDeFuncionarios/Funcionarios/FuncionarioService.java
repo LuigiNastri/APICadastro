@@ -8,6 +8,11 @@ import java.util.Optional;
 @Service
 public class FuncionarioService {
     private final FuncionarioRepository funcionarioRepository;
+    private FuncionarioMapper funcionarioMapper;
+
+    public FuncionarioService(FuncionarioMapper funcionarioMapper) {
+        this.funcionarioMapper = funcionarioMapper;
+    }
 
     public FuncionarioService(FuncionarioRepository funcionarioRepository) {
         this.funcionarioRepository = funcionarioRepository;
@@ -24,8 +29,10 @@ public class FuncionarioService {
         return funcionarioPorId.orElse(null);
     }
     // Criar um novo funcionario
-    public FuncionarioModel criarFuncionario(FuncionarioModel funcionario){
-        return funcionarioRepository.save(funcionario);
+    public FuncionarioDTO criarFuncionario(FuncionarioDTO funcionarioDTO){
+        FuncionarioModel funcionario = new FuncionarioMapper().map(funcionarioDTO);
+        funcionario = funcionarioRepository.save(funcionario);
+        return funcionarioMapper.map(funcionario);
     }
 
     // Deletar um funcionario = Tem que ser um metodo VOID
