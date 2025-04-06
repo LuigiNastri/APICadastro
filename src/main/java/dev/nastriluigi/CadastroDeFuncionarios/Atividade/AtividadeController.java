@@ -5,7 +5,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/atividade")
-//LOCALHOST:8080, quer criar uma rota
 
 public class AtividadeController {
     private final AtividadeService atividadeService;
@@ -14,29 +13,24 @@ public class AtividadeController {
         this.atividadeService = atividadeService;
     }
 
-    // GET --  Mandar uma requisao para mostrar as atividade
     @GetMapping("/listar")
-    public List<AtividadeModel> listarAtiv(){
+    public List<AtividadeDTO> listarAtiv(){
         return atividadeService.listarAtiv();
     }
-    // Listar por ID
     @GetMapping("/listar/{id}")
-    public AtividadeModel listarAtivporID(@PathVariable Long id){
+    public AtividadeDTO listarAtivporID(@PathVariable Long id){
         return atividadeService.listarAtivporID(id);
     }
-    // POST --  Mandar uma requisao para criar as atividade
 
     @PostMapping("/criar")
-    public AtividadeModel criarAtiv(@RequestBody AtividadeModel atividade){
+    public AtividadeDTO criarAtiv(@RequestBody AtividadeDTO atividade){
         return atividadeService.criarAtiv(atividade);
     }
-    // PUT --  Mandar uma requisao para alterar as atividade
 
     @PutMapping("/alterar/{id}")
-    public AtividadeModel alterarAtiv(@PathVariable Long id, @RequestBody AtividadeModel atividadeAtualizado){
+    public AtividadeDTO alterarAtiv(@PathVariable Long id, @RequestBody AtividadeDTO atividadeAtualizado){
         return atividadeService.alterarAtiv(id, atividadeAtualizado);
     }
-    // Delete --  Mandar uma requisao para deletar as atividade
     @DeleteMapping("/deletar/{id}")
     public void deletarAtivPorID(@PathVariable Long id){
         atividadeService.deletarAtivPorID(id);
