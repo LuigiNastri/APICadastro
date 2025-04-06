@@ -26,9 +26,11 @@ public class FuncionarioModel {
     @Column(unique = true, name = "email")
     private String email;
 
+    @Column (name = "cargo")
+    private String cargo;
+
     @Column (name = "idade")
     private int idade;
-
 
 
     // Um funcionario tem uma unica atividade
